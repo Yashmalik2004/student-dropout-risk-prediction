@@ -4,104 +4,156 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Student Dropout Risk Predictor</title>
-  <link rel="stylesheet" href="index.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style> </style>
+  <link rel="stylesheet" href="index.css">
+  <style></style>
 </head>
 <body>
 
+<!-- ═══ HEADER ═══ -->
 <header>
-  <div class="logo">🎓</div>
-  <div>
-    <h1>Dropout Risk Predictor</h1>
-    <p>XGBoost model · 88.9% accuracy · Binary classification</p>
+  <a href="#" class="header-brand">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2L13 8H17L14 12L15 18L10 15L5 18L6 12L3 8H7L10 2Z" fill="white" opacity="0.9"/>
+      </svg>
+    </div>
+    <span class="brand-name">Edu<span class="brand-dot">Risk</span></span>
+  </a>
+  <div class="header-divider"></div>
+  <span class="header-subtitle">Faculty Intervention Dashboard</span>
+  <div class="header-right">
+    <span class="accuracy-chip">88.9% Accuracy</span>
+    <span class="model-chip">XGBoost Live</span>
   </div>
-  <span class="badge">Live Model</span>
 </header>
 
-<div class="container">
-  <div class="grid">
+<!-- ═══ BANNER ═══ -->
+<div class="top-banner">
+  <div class="banner-content">
+    <div class="banner-text">
+      <h2>Student Dropout Risk Prediction</h2>
+      <p>Enter academic, financial, and personal data to assess a student's dropout probability and receive tailored intervention recommendations.</p>
+    </div>
+    <div class="banner-stats">
+      <div class="stat-box">
+        <div class="stat-val">88<span>%</span></div>
+        <div class="stat-lbl">Accuracy</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">47</div>
+        <div class="stat-lbl">Features</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val">3</div>
+        <div class="stat-lbl">Risk Tiers</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- ── LEFT: Form ── -->
+<!-- ═══ MAIN ═══ -->
+<div class="container">
+  <div class="main-grid">
+
+    <!-- ──────── LEFT COLUMN ──────── -->
     <div>
 
-      <!-- Section 1: Academic Performance -->
-      <div class="section">
-        <div class="section-title">📚 1st Semester Performance</div>
-        <div class="form-grid three">
-          <div class="field">
-            <label>Units Enrolled</label>
-            <input type="number" id="cu1_enrolled" value="6" min="0" max="26"/>
+      <!-- ACADEMIC PERFORMANCE -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon teal">📊</div>
+          <div>
+            <div class="card-title">Academic Performance</div>
+            <div class="card-sub">Curricular unit data for both semesters</div>
           </div>
-          <div class="field">
-            <label>Units Approved</label>
-            <input type="number" id="cu1_approved" value="6" min="0" max="26"/>
+        </div>
+        <div class="sem-grid">
+          <!-- 1st Sem -->
+          <div class="sem-col">
+            <div class="sem-label">◈ 1st Semester</div>
+            <div class="form-grid">
+              <div class="field">
+                <label class="field-label">Enrolled</label>
+                <input type="number" id="cu1_enrolled" value="6" min="0" max="26"/>
+              </div>
+              <div class="field">
+                <label class="field-label">Approved</label>
+                <input type="number" id="cu1_approved" value="6" min="0" max="26"/>
+              </div>
+              <div class="field">
+                <label class="field-label">Grade <span style="font-weight:400;color:var(--text-soft)">(0–20)</span></label>
+                <input type="number" id="cu1_grade" value="13.0" min="0" max="20" step="0.1"/>
+              </div>
+              <div class="field">
+                <label class="field-label">Evaluations</label>
+                <input type="number" id="cu1_evaluations" value="6" min="0" max="45"/>
+              </div>
+              <div class="field">
+                <label class="field-label">Credited</label>
+                <input type="number" id="cu1_credited" value="0" min="0" max="20"/>
+              </div>
+              <div class="field">
+                <label class="field-label">No Eval</label>
+                <input type="number" id="cu1_without_eval" value="0" min="0" max="12"/>
+              </div>
+            </div>
           </div>
-          <div class="field">
-            <label>Grade (0–20)</label>
-            <input type="number" id="cu1_grade" value="13.0" min="0" max="20" step="0.1"/>
-          </div>
-          <div class="field">
-            <label>Evaluations</label>
-            <input type="number" id="cu1_evaluations" value="6" min="0" max="45"/>
-          </div>
-          <div class="field">
-            <label>Credited</label>
-            <input type="number" id="cu1_credited" value="0" min="0" max="20"/>
-          </div>
-          <div class="field">
-            <label>Without Evaluations</label>
-            <input type="number" id="cu1_without_eval" value="0" min="0" max="12"/>
+          <!-- 2nd Sem -->
+          <div class="sem-col">
+            <div class="sem-label s2">◈ 2nd Semester</div>
+            <div class="form-grid">
+              <div class="field">
+                <label class="field-label">Enrolled</label>
+                <input type="number" id="cu2_enrolled" value="6" min="0" max="23"/>
+              </div>
+              <div class="field">
+                <label class="field-label">Approved</label>
+                <input type="number" id="cu2_approved" value="6" min="0" max="20"/>
+              </div>
+              <div class="field">
+                <label class="field-label">Grade <span style="font-weight:400;color:var(--text-soft)">(0–20)</span></label>
+                <input type="number" id="cu2_grade" value="13.0" min="0" max="20" step="0.1"/>
+              </div>
+              <div class="field">
+                <label class="field-label">Evaluations</label>
+                <input type="number" id="cu2_evaluations" value="6" min="0" max="33"/>
+              </div>
+              <div class="field">
+                <label class="field-label">Credited</label>
+                <input type="number" id="cu2_credited" value="0" min="0" max="19"/>
+              </div>
+              <div class="field">
+                <label class="field-label">No Eval</label>
+                <input type="number" id="cu2_without_eval" value="0" min="0" max="12"/>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="section">
-        <div class="section-title">📗 2nd Semester Performance</div>
-        <div class="form-grid three">
-          <div class="field">
-            <label>Units Enrolled</label>
-            <input type="number" id="cu2_enrolled" value="6" min="0" max="23"/>
-          </div>
-          <div class="field">
-            <label>Units Approved</label>
-            <input type="number" id="cu2_approved" value="6" min="0" max="20"/>
-          </div>
-          <div class="field">
-            <label>Grade (0–20)</label>
-            <input type="number" id="cu2_grade" value="13.0" min="0" max="20" step="0.1"/>
-          </div>
-          <div class="field">
-            <label>Evaluations</label>
-            <input type="number" id="cu2_evaluations" value="6" min="0" max="33"/>
-          </div>
-          <div class="field">
-            <label>Credited</label>
-            <input type="number" id="cu2_credited" value="0" min="0" max="19"/>
-          </div>
-          <div class="field">
-            <label>Without Evaluations</label>
-            <input type="number" id="cu2_without_eval" value="0" min="0" max="12"/>
+      <!-- FINANCIAL STATUS -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon amber">💳</div>
+          <div>
+            <div class="card-title">Financial Status</div>
+            <div class="card-sub">Tuition, debts, and scholarship indicators</div>
           </div>
         </div>
-      </div>
-
-      <!-- Section 2: Financial -->
-      <div class="section">
-        <div class="section-title">💳 Financial Status</div>
-        <div class="form-grid">
+        <div class="form-grid cols4">
           <div class="field">
-            <label>Tuition Fees Up To Date</label>
-            <div class="toggle-group">
+            <label class="field-label">Tuition Up To Date</label>
+            <div class="toggle-row">
               <input type="radio" name="tuition" id="tuition_yes" value="1" checked/>
-              <label for="tuition_yes">✅ Yes</label>
+              <label for="tuition_yes">✓ Yes</label>
               <input type="radio" name="tuition" id="tuition_no" value="0"/>
-              <label for="tuition_no">❌ No</label>
+              <label for="tuition_no">✗ No</label>
             </div>
           </div>
           <div class="field">
-            <label>Debtor</label>
-            <div class="toggle-group">
+            <label class="field-label">Debtor</label>
+            <div class="toggle-row">
               <input type="radio" name="debtor" id="debtor_no" value="0" checked/>
               <label for="debtor_no">No</label>
               <input type="radio" name="debtor" id="debtor_yes" value="1"/>
@@ -109,8 +161,8 @@
             </div>
           </div>
           <div class="field">
-            <label>Scholarship Holder</label>
-            <div class="toggle-group">
+            <label class="field-label">Scholarship</label>
+            <div class="toggle-row">
               <input type="radio" name="scholarship" id="sch_no" value="0" checked/>
               <label for="sch_no">No</label>
               <input type="radio" name="scholarship" id="sch_yes" value="1"/>
@@ -118,8 +170,8 @@
             </div>
           </div>
           <div class="field">
-            <label>Displaced Student</label>
-            <div class="toggle-group">
+            <label class="field-label">Displaced</label>
+            <div class="toggle-row">
               <input type="radio" name="displaced" id="dis_no" value="0" checked/>
               <label for="dis_no">No</label>
               <input type="radio" name="displaced" id="dis_yes" value="1"/>
@@ -129,31 +181,29 @@
         </div>
       </div>
 
-      <!-- Section 3: Personal Info -->
-      <div class="section">
-        <div class="section-title">👤 Personal Information</div>
-        <div class="form-grid">
+      <!-- PERSONAL INFORMATION -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon navy">👤</div>
+          <div>
+            <div class="card-title">Student Profile</div>
+            <div class="card-sub">Personal and enrollment details</div>
+          </div>
+        </div>
+        <div class="form-grid cols3">
           <div class="field">
-            <label>Age at Enrollment</label>
+            <label class="field-label">Age at Enrollment</label>
             <input type="number" id="age" value="20" min="17" max="70"/>
           </div>
           <div class="field">
-            <label>Gender</label>
+            <label class="field-label">Gender</label>
             <select id="gender">
               <option value="1">Male</option>
               <option value="0">Female</option>
             </select>
           </div>
           <div class="field">
-            <label>Admission Grade (0–200)</label>
-            <input type="number" id="admission_grade" value="130" min="0" max="200" step="0.1"/>
-          </div>
-          <div class="field">
-            <label>Previous Qualification Grade</label>
-            <input type="number" id="prev_qual_grade" value="130" min="0" max="200" step="0.1"/>
-          </div>
-          <div class="field">
-            <label>Marital Status</label>
+            <label class="field-label">Marital Status</label>
             <select id="marital_status">
               <option value="1">Single</option>
               <option value="2">Married</option>
@@ -164,8 +214,16 @@
             </select>
           </div>
           <div class="field">
-            <label>International Student</label>
-            <div class="toggle-group">
+            <label class="field-label">Admission Grade <span style="font-weight:400;color:var(--text-soft)">(0–200)</span></label>
+            <input type="number" id="admission_grade" value="130" min="0" max="200" step="0.1"/>
+          </div>
+          <div class="field">
+            <label class="field-label">Prev. Qualification Grade</label>
+            <input type="number" id="prev_qual_grade" value="130" min="0" max="200" step="0.1"/>
+          </div>
+          <div class="field">
+            <label class="field-label">International Student</label>
+            <div class="toggle-row">
               <input type="radio" name="intl" id="intl_no" value="0" checked/>
               <label for="intl_no">No</label>
               <input type="radio" name="intl" id="intl_yes" value="1"/>
@@ -173,64 +231,216 @@
             </div>
           </div>
         </div>
+
+        <!-- Dropdowns row -->
+        <div class="form-grid cols4" style="margin-top:14px;">
+          <div class="field">
+            <label class="field-label">Previous Qualification</label>
+            <select id="prev_qual">
+              <option value="1">Secondary education</option>
+              <option value="2">Higher education – bachelor's</option>
+              <option value="3">Higher education – degree</option>
+              <option value="4">Higher education – master's</option>
+              <option value="5">Higher education – doctorate</option>
+              <option value="6">Freq. higher ed.</option>
+              <option value="9">12th year – not completed</option>
+              <option value="10">11th year – not completed</option>
+              <option value="12">Other – 11th year</option>
+              <option value="14">10th year</option>
+              <option value="15">10th year – not completed</option>
+              <option value="19">Basic ed – 3rd cycle</option>
+              <option value="38">Basic ed – 2nd cycle</option>
+              <option value="39">Tech. specialisation</option>
+              <option value="40">Higher ed – degree (1st cycle)</option>
+              <option value="42">Prof. higher tech. course</option>
+              <option value="43">Higher ed – master's (2nd cycle)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label">Mother's Qualification</label>
+            <select id="mother_qual">
+              <option value="1">Secondary – 12th Year or Eq.</option>
+              <option value="2">Higher Ed – Bachelor's</option>
+              <option value="3">Higher Ed – Degree</option>
+              <option value="4">Higher Ed – Master's</option>
+              <option value="5">Higher Ed – Doctorate</option>
+              <option value="6">Freq. Higher Ed</option>
+              <option value="9">12th Year – Not Completed</option>
+              <option value="10">11th Year – Not Completed</option>
+              <option value="11">7th Year (Old)</option>
+              <option value="12">Other – 11th Year</option>
+              <option value="14">10th Year</option>
+              <option value="18">General commerce course</option>
+              <option value="19">Basic Ed 3rd Cycle</option>
+              <option value="22">Tech.-professional course</option>
+              <option value="26">7th year of schooling</option>
+              <option value="27">2nd cycle of gen. high school</option>
+              <option value="29">9th Year – Not Completed</option>
+              <option value="30">8th year</option>
+              <option value="34">Unknown</option>
+              <option value="35">Can't read or write</option>
+              <option value="36">Can read without 4th yr</option>
+              <option value="37">Basic Ed 1st Cycle</option>
+              <option value="38">Basic Ed 2nd Cycle</option>
+              <option value="39">Tech. Specialisation</option>
+              <option value="40">Higher Ed – Degree (1st cycle)</option>
+              <option value="41">Specialised higher studies</option>
+              <option value="42">Prof. Higher Tech.</option>
+              <option value="43">Higher Ed – Master's (2nd)</option>
+              <option value="44">Higher Ed – Doctorate (3rd)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label">Father's Qualification</label>
+            <select id="father_qual">
+              <option value="1">Secondary – 12th Year or Eq.</option>
+              <option value="2">Higher Ed – Bachelor's</option>
+              <option value="3">Higher Ed – Degree</option>
+              <option value="4">Higher Ed – Master's</option>
+              <option value="5">Higher Ed – Doctorate</option>
+              <option value="6">Freq. Higher Ed</option>
+              <option value="9">12th Year – Not Completed</option>
+              <option value="10">11th Year – Not Completed</option>
+              <option value="11">7th Year (Old)</option>
+              <option value="12">Other – 11th Year</option>
+              <option value="14">10th Year</option>
+              <option value="18">General commerce course</option>
+              <option value="19">Basic Ed 3rd Cycle</option>
+              <option value="22">Tech.-professional course</option>
+              <option value="26">7th year of schooling</option>
+              <option value="27">2nd cycle of gen. high school</option>
+              <option value="29">9th Year – Not Completed</option>
+              <option value="30">8th year</option>
+              <option value="34">Unknown</option>
+              <option value="35">Can't read or write</option>
+              <option value="36">Can read without 4th yr</option>
+              <option value="37">Basic Ed 1st Cycle</option>
+              <option value="38">Basic Ed 2nd Cycle</option>
+              <option value="39">Tech. Specialisation</option>
+              <option value="40">Higher Ed – Degree (1st cycle)</option>
+              <option value="41">Specialised higher studies</option>
+              <option value="42">Prof. Higher Tech.</option>
+              <option value="43">Higher Ed – Master's (2nd)</option>
+              <option value="44">Higher Ed – Doctorate (3rd)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field-label">Special Needs</label>
+            <div class="toggle-row">
+              <input type="radio" name="special_needs" id="sn_no" value="0" checked/>
+              <label for="sn_no">No</label>
+              <input type="radio" name="special_needs" id="sn_yes" value="1"/>
+              <label for="sn_yes">Yes</label>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Section 4: Economic Context -->
-      <div class="section">
-        <div class="section-title">📈 Economic Context</div>
-        <div class="form-grid three">
+      <!-- ECONOMIC CONTEXT -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon green">📈</div>
+          <div>
+            <div class="card-title">Economic Context</div>
+            <div class="card-sub">Macroeconomic indicators at time of enrollment</div>
+          </div>
+        </div>
+        <div class="form-grid cols3">
           <div class="field">
-            <label>Unemployment Rate (%)</label>
+            <label class="field-label">Unemployment Rate <span style="font-weight:400;color:var(--text-soft)">(%)</span></label>
             <input type="number" id="unemployment" value="10.8" step="0.1"/>
           </div>
           <div class="field">
-            <label>Inflation Rate (%)</label>
+            <label class="field-label">Inflation Rate <span style="font-weight:400;color:var(--text-soft)">(%)</span></label>
             <input type="number" id="inflation" value="1.4" step="0.1"/>
           </div>
           <div class="field">
-            <label>GDP</label>
+            <label class="field-label">GDP</label>
             <input type="number" id="gdp" value="1.74" step="0.01"/>
           </div>
         </div>
       </div>
 
+      <!-- ACTION BUTTON -->
       <button class="btn-predict" id="predictBtn" onclick="predict()">
-        Predict Dropout Risk
+        <div class="btn-icon">🔍</div>
+        Analyse Dropout Risk
       </button>
-      <div class="error-box" id="errorBox"></div>
+      <div class="error-bar" id="errorBar">
+        <span>⚠</span> <span id="errorMsg"></span>
+      </div>
 
     </div><!-- end left -->
 
-    <!-- ── RIGHT: Result Panel ── -->
+    <!-- ──────── RIGHT COLUMN ──────── -->
     <div class="result-panel">
-      <div class="section-title">📊 Prediction Result</div>
 
-      <div class="result-placeholder" id="placeholder">
-        <div class="icon">🎯</div>
-        <p>Fill in the student's details and click <strong>Predict</strong> to see the dropout risk assessment.</p>
+      <!-- RESULT CARD -->
+      <div class="result-card">
+        <div class="result-topbar">
+          <span class="result-topbar-title">Prediction Output</span>
+          <span class="result-topbar-icon">📋</span>
+        </div>
+        <div class="result-body">
+
+          <!-- Placeholder -->
+          <div class="placeholder" id="placeholder">
+            <div class="placeholder-art">🎯</div>
+            <h3>Awaiting Input</h3>
+            <p>Complete the student profile on the left and click <strong>Analyse Dropout Risk</strong> to generate a prediction.</p>
+          </div>
+
+          <!-- Result -->
+          <div class="result-display" id="resultDisplay">
+
+            <div class="risk-header HIGH" id="riskHeader">
+              <div class="risk-emoji" id="riskEmoji">🔴</div>
+              <div class="risk-text-wrap">
+                <div class="risk-level HIGH" id="riskLevel">HIGH RISK</div>
+                <div class="risk-sub" id="riskSub">Immediate attention required</div>
+              </div>
+            </div>
+
+            <div class="prob-section">
+              <div class="prob-ring-wrap">
+                <svg viewBox="0 0 100 100">
+                  <circle class="ring-bg" cx="50" cy="50" r="45"/>
+                  <circle class="ring-fill HIGH" id="ringFill" cx="50" cy="50" r="45"/>
+                </svg>
+                <div class="prob-center-text">
+                  <div class="prob-num HIGH" id="probNum">—</div>
+                  <div class="prob-pct">probability</div>
+                </div>
+              </div>
+              <div class="prob-caption">Dropout Probability</div>
+            </div>
+
+            <div class="risk-message" id="riskMessage"></div>
+
+            <div class="factors-title">Key Indicators</div>
+            <div id="factorsTable"></div>
+
+          </div>
+        </div>
       </div>
 
-      <div class="result-content" id="resultContent">
-        <div id="riskBadge" class="risk-badge"></div>
-
-        <div class="prob-display">
-          <div id="probNumber" class="prob-number">0%</div>
-          <div class="prob-label">Dropout Probability</div>
+      <!-- INTERVENTION GUIDANCE CARD -->
+      <div class="guidance-card">
+        <div class="guidance-header">🗂 Intervention Guidance</div>
+        <div class="guidance-body" id="guidanceBody">
+          <!-- filled dynamically -->
         </div>
-
-        <div class="prob-bar-wrap">
-          <div class="prob-bar" id="probBar"></div>
-        </div>
-
-        <div class="result-message" id="resultMessage"></div>
-
-        <div class="factors" id="factorsBox"></div>
       </div>
-    </div>
 
-  </div><!-- end grid -->
-</div><!-- end container -->
+    </div><!-- end right -->
 
-<script src="index.js"></script>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-strip">
+  EduRisk · XGBoost Binary Classification · For Faculty Use Only
+</div>
+<script src="/script.js"></script>
 </body>
 </html>
