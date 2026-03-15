@@ -3,128 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Dropout Risk Predictor</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <title>EduRisk — Student Dropout Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="index.css">
-  <style></style>
 </head>
 <body>
 
-<!-- ═══ HEADER ═══ -->
 <header>
-  <a href="#" class="header-brand">
-    <div class="logo-mark">
-      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 2L13 8H17L14 12L15 18L10 15L5 18L6 12L3 8H7L10 2Z" fill="white" opacity="0.9"/>
-      </svg>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3L15.5 9.5H21L17 14L18.5 21L12 17.5L5.5 21L7 14L3 9.5H8.5L12 3Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <span class="brand-name">Edu<span class="brand-accent">Risk</span></span>
     </div>
-    <span class="brand-name">Edu<span class="brand-dot">Risk</span></span>
-  </a>
-  <div class="header-divider"></div>
-  <span class="header-subtitle">Faculty Intervention Dashboard</span>
-  <div class="header-right">
-    <span class="accuracy-chip">88.9% Accuracy</span>
-    <span class="model-chip">XGBoost Live</span>
+    <span class="header-sep">|</span>
+    <span class="header-subtitle">Faculty Intervention Dashboard</span>
+    <div class="header-chips">
+      <span class="chip chip-green">88.9% Accuracy</span>
+      <span class="chip chip-blue">XGBoost Live</span>
+    </div>
   </div>
 </header>
 
-<!-- ═══ BANNER ═══ -->
-<div class="top-banner">
-  <div class="banner-content">
-    <div class="banner-text">
-      <h2>Student Dropout Risk Prediction</h2>
-      <p>Enter academic, financial, and personal data to assess a student's dropout probability and receive tailored intervention recommendations.</p>
+<div class="hero-banner">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Student Dropout Risk Prediction</h1>
+      <p>Enter academic, financial, and personal data to assess dropout probability and receive tailored intervention recommendations.</p>
     </div>
-    <div class="banner-stats">
-      <div class="stat-box">
-        <div class="stat-val">88<span>%</span></div>
-        <div class="stat-lbl">Accuracy</div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">88<span>%</span></div>
+        <div class="stat-label">Accuracy</div>
       </div>
-      <div class="stat-box">
-        <div class="stat-val">47</div>
-        <div class="stat-lbl">Features</div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">47</div>
+        <div class="stat-label">Features</div>
       </div>
-      <div class="stat-box">
-        <div class="stat-val">3</div>
-        <div class="stat-lbl">Risk Tiers</div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Risk Tiers</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ═══ MAIN ═══ -->
-<div class="container">
+<div class="page-container">
   <div class="main-grid">
 
-    <!-- ──────── LEFT COLUMN ──────── -->
-    <div>
+    <!-- ── LEFT COLUMN ── -->
+    <div class="left-col">
 
       <!-- ACADEMIC PERFORMANCE -->
       <div class="card">
-        <div class="card-header">
-          <div class="card-icon teal">📊</div>
+        <div class="card-head">
+          <div class="card-icon icon-teal">
+            <svg viewBox="0 0 20 20" fill="none"><path d="M3 10l7-7 7 7M5 8v7a1 1 0 001 1h3v-4h2v4h3a1 1 0 001-1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <div>
             <div class="card-title">Academic Performance</div>
             <div class="card-sub">Curricular unit data for both semesters</div>
           </div>
         </div>
+
         <div class="sem-grid">
-          <!-- 1st Sem -->
           <div class="sem-col">
-            <div class="sem-label">◈ 1st Semester</div>
-            <div class="form-grid">
+            <div class="sem-badge sem-badge-1">1st Semester</div>
+            <div class="field-grid">
               <div class="field">
-                <label class="field-label">Enrolled</label>
+                <label>Enrolled</label>
                 <input type="number" id="cu1_enrolled" value="6" min="0" max="26"/>
               </div>
               <div class="field">
-                <label class="field-label">Approved</label>
+                <label>Approved</label>
                 <input type="number" id="cu1_approved" value="6" min="0" max="26"/>
               </div>
               <div class="field">
-                <label class="field-label">Grade <span style="font-weight:400;color:var(--text-soft)">(0–20)</span></label>
+                <label>Grade <em>(0–20)</em></label>
                 <input type="number" id="cu1_grade" value="13.0" min="0" max="20" step="0.1"/>
               </div>
               <div class="field">
-                <label class="field-label">Evaluations</label>
+                <label>Evaluations</label>
                 <input type="number" id="cu1_evaluations" value="6" min="0" max="45"/>
               </div>
               <div class="field">
-                <label class="field-label">Credited</label>
+                <label>Credited</label>
                 <input type="number" id="cu1_credited" value="0" min="0" max="20"/>
               </div>
               <div class="field">
-                <label class="field-label">No Eval</label>
+                <label>No Eval</label>
                 <input type="number" id="cu1_without_eval" value="0" min="0" max="12"/>
               </div>
             </div>
           </div>
-          <!-- 2nd Sem -->
+
           <div class="sem-col">
-            <div class="sem-label s2">◈ 2nd Semester</div>
-            <div class="form-grid">
+            <div class="sem-badge sem-badge-2">2nd Semester</div>
+            <div class="field-grid">
               <div class="field">
-                <label class="field-label">Enrolled</label>
+                <label>Enrolled</label>
                 <input type="number" id="cu2_enrolled" value="6" min="0" max="23"/>
               </div>
               <div class="field">
-                <label class="field-label">Approved</label>
+                <label>Approved</label>
                 <input type="number" id="cu2_approved" value="6" min="0" max="20"/>
               </div>
               <div class="field">
-                <label class="field-label">Grade <span style="font-weight:400;color:var(--text-soft)">(0–20)</span></label>
+                <label>Grade <em>(0–20)</em></label>
                 <input type="number" id="cu2_grade" value="13.0" min="0" max="20" step="0.1"/>
               </div>
               <div class="field">
-                <label class="field-label">Evaluations</label>
+                <label>Evaluations</label>
                 <input type="number" id="cu2_evaluations" value="6" min="0" max="33"/>
               </div>
               <div class="field">
-                <label class="field-label">Credited</label>
+                <label>Credited</label>
                 <input type="number" id="cu2_credited" value="0" min="0" max="19"/>
               </div>
               <div class="field">
-                <label class="field-label">No Eval</label>
+                <label>No Eval</label>
                 <input type="number" id="cu2_without_eval" value="0" min="0" max="12"/>
               </div>
             </div>
@@ -134,76 +136,80 @@
 
       <!-- FINANCIAL STATUS -->
       <div class="card">
-        <div class="card-header">
-          <div class="card-icon amber">💳</div>
+        <div class="card-head">
+          <div class="card-icon icon-amber">
+            <svg viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 9h16" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="13" r="1" fill="currentColor"/></svg>
+          </div>
           <div>
             <div class="card-title">Financial Status</div>
             <div class="card-sub">Tuition, debts, and scholarship indicators</div>
           </div>
         </div>
-        <div class="form-grid cols4">
+        <div class="field-grid cols-4">
           <div class="field">
-            <label class="field-label">Tuition Up To Date</label>
+            <label>Tuition Up To Date</label>
             <div class="toggle-row">
               <input type="radio" name="tuition" id="tuition_yes" value="1" checked/>
-              <label for="tuition_yes">✓ Yes</label>
+              <label for="tuition_yes" class="toggle-btn">Yes</label>
               <input type="radio" name="tuition" id="tuition_no" value="0"/>
-              <label for="tuition_no">✗ No</label>
+              <label for="tuition_no" class="toggle-btn">No</label>
             </div>
           </div>
           <div class="field">
-            <label class="field-label">Debtor</label>
+            <label>Debtor</label>
             <div class="toggle-row">
               <input type="radio" name="debtor" id="debtor_no" value="0" checked/>
-              <label for="debtor_no">No</label>
+              <label for="debtor_no" class="toggle-btn">No</label>
               <input type="radio" name="debtor" id="debtor_yes" value="1"/>
-              <label for="debtor_yes">Yes</label>
+              <label for="debtor_yes" class="toggle-btn">Yes</label>
             </div>
           </div>
           <div class="field">
-            <label class="field-label">Scholarship</label>
+            <label>Scholarship</label>
             <div class="toggle-row">
               <input type="radio" name="scholarship" id="sch_no" value="0" checked/>
-              <label for="sch_no">No</label>
+              <label for="sch_no" class="toggle-btn">No</label>
               <input type="radio" name="scholarship" id="sch_yes" value="1"/>
-              <label for="sch_yes">Yes</label>
+              <label for="sch_yes" class="toggle-btn">Yes</label>
             </div>
           </div>
           <div class="field">
-            <label class="field-label">Displaced</label>
+            <label>Displaced</label>
             <div class="toggle-row">
               <input type="radio" name="displaced" id="dis_no" value="0" checked/>
-              <label for="dis_no">No</label>
+              <label for="dis_no" class="toggle-btn">No</label>
               <input type="radio" name="displaced" id="dis_yes" value="1"/>
-              <label for="dis_yes">Yes</label>
+              <label for="dis_yes" class="toggle-btn">Yes</label>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PERSONAL INFORMATION -->
+      <!-- STUDENT PROFILE -->
       <div class="card">
-        <div class="card-header">
-          <div class="card-icon navy">👤</div>
+        <div class="card-head">
+          <div class="card-icon icon-navy">
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M4 17c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
           <div>
             <div class="card-title">Student Profile</div>
             <div class="card-sub">Personal and enrollment details</div>
           </div>
         </div>
-        <div class="form-grid cols3">
+        <div class="field-grid cols-3">
           <div class="field">
-            <label class="field-label">Age at Enrollment</label>
+            <label>Age at Enrollment</label>
             <input type="number" id="age" value="20" min="17" max="70"/>
           </div>
           <div class="field">
-            <label class="field-label">Gender</label>
+            <label>Gender</label>
             <select id="gender">
               <option value="1">Male</option>
               <option value="0">Female</option>
             </select>
           </div>
           <div class="field">
-            <label class="field-label">Marital Status</label>
+            <label>Marital Status</label>
             <select id="marital_status">
               <option value="1">Single</option>
               <option value="2">Married</option>
@@ -214,34 +220,33 @@
             </select>
           </div>
           <div class="field">
-            <label class="field-label">Admission Grade <span style="font-weight:400;color:var(--text-soft)">(0–200)</span></label>
+            <label>Admission Grade <em>(0–200)</em></label>
             <input type="number" id="admission_grade" value="130" min="0" max="200" step="0.1"/>
           </div>
           <div class="field">
-            <label class="field-label">Prev. Qualification Grade</label>
+            <label>Prev. Qualification Grade</label>
             <input type="number" id="prev_qual_grade" value="130" min="0" max="200" step="0.1"/>
           </div>
           <div class="field">
-            <label class="field-label">International Student</label>
+            <label>International Student</label>
             <div class="toggle-row">
               <input type="radio" name="intl" id="intl_no" value="0" checked/>
-              <label for="intl_no">No</label>
+              <label for="intl_no" class="toggle-btn">No</label>
               <input type="radio" name="intl" id="intl_yes" value="1"/>
-              <label for="intl_yes">Yes</label>
+              <label for="intl_yes" class="toggle-btn">Yes</label>
             </div>
           </div>
         </div>
 
-        <!-- Dropdowns row -->
-        <div class="form-grid cols4" style="margin-top:14px;">
+        <div class="field-grid cols-4" style="margin-top:16px;">
           <div class="field">
-            <label class="field-label">Previous Qualification</label>
+            <label>Previous Qualification</label>
             <select id="prev_qual">
               <option value="1">Secondary education</option>
-              <option value="2">Higher education – bachelor's</option>
-              <option value="3">Higher education – degree</option>
-              <option value="4">Higher education – master's</option>
-              <option value="5">Higher education – doctorate</option>
+              <option value="2">Higher ed – bachelor's</option>
+              <option value="3">Higher ed – degree</option>
+              <option value="4">Higher ed – master's</option>
+              <option value="5">Higher ed – doctorate</option>
               <option value="6">Freq. higher ed.</option>
               <option value="9">12th year – not completed</option>
               <option value="10">11th year – not completed</option>
@@ -251,86 +256,54 @@
               <option value="19">Basic ed – 3rd cycle</option>
               <option value="38">Basic ed – 2nd cycle</option>
               <option value="39">Tech. specialisation</option>
-              <option value="40">Higher ed – degree (1st cycle)</option>
+              <option value="40">Higher ed – 1st cycle</option>
               <option value="42">Prof. higher tech. course</option>
-              <option value="43">Higher ed – master's (2nd cycle)</option>
+              <option value="43">Higher ed – master's 2nd</option>
             </select>
           </div>
           <div class="field">
-            <label class="field-label">Mother's Qualification</label>
+            <label>Mother's Qualification</label>
             <select id="mother_qual">
-              <option value="1">Secondary – 12th Year or Eq.</option>
+              <option value="1">Secondary – 12th Year</option>
               <option value="2">Higher Ed – Bachelor's</option>
               <option value="3">Higher Ed – Degree</option>
               <option value="4">Higher Ed – Master's</option>
               <option value="5">Higher Ed – Doctorate</option>
-              <option value="6">Freq. Higher Ed</option>
               <option value="9">12th Year – Not Completed</option>
               <option value="10">11th Year – Not Completed</option>
-              <option value="11">7th Year (Old)</option>
-              <option value="12">Other – 11th Year</option>
-              <option value="14">10th Year</option>
-              <option value="18">General commerce course</option>
               <option value="19">Basic Ed 3rd Cycle</option>
-              <option value="22">Tech.-professional course</option>
-              <option value="26">7th year of schooling</option>
-              <option value="27">2nd cycle of gen. high school</option>
               <option value="29">9th Year – Not Completed</option>
-              <option value="30">8th year</option>
               <option value="34">Unknown</option>
               <option value="35">Can't read or write</option>
-              <option value="36">Can read without 4th yr</option>
               <option value="37">Basic Ed 1st Cycle</option>
               <option value="38">Basic Ed 2nd Cycle</option>
-              <option value="39">Tech. Specialisation</option>
-              <option value="40">Higher Ed – Degree (1st cycle)</option>
-              <option value="41">Specialised higher studies</option>
-              <option value="42">Prof. Higher Tech.</option>
-              <option value="43">Higher Ed – Master's (2nd)</option>
-              <option value="44">Higher Ed – Doctorate (3rd)</option>
             </select>
           </div>
           <div class="field">
-            <label class="field-label">Father's Qualification</label>
+            <label>Father's Qualification</label>
             <select id="father_qual">
-              <option value="1">Secondary – 12th Year or Eq.</option>
+              <option value="1">Secondary – 12th Year</option>
               <option value="2">Higher Ed – Bachelor's</option>
               <option value="3">Higher Ed – Degree</option>
               <option value="4">Higher Ed – Master's</option>
               <option value="5">Higher Ed – Doctorate</option>
-              <option value="6">Freq. Higher Ed</option>
               <option value="9">12th Year – Not Completed</option>
               <option value="10">11th Year – Not Completed</option>
-              <option value="11">7th Year (Old)</option>
-              <option value="12">Other – 11th Year</option>
-              <option value="14">10th Year</option>
-              <option value="18">General commerce course</option>
               <option value="19">Basic Ed 3rd Cycle</option>
-              <option value="22">Tech.-professional course</option>
-              <option value="26">7th year of schooling</option>
-              <option value="27">2nd cycle of gen. high school</option>
               <option value="29">9th Year – Not Completed</option>
-              <option value="30">8th year</option>
               <option value="34">Unknown</option>
               <option value="35">Can't read or write</option>
-              <option value="36">Can read without 4th yr</option>
               <option value="37">Basic Ed 1st Cycle</option>
               <option value="38">Basic Ed 2nd Cycle</option>
-              <option value="39">Tech. Specialisation</option>
-              <option value="40">Higher Ed – Degree (1st cycle)</option>
-              <option value="41">Specialised higher studies</option>
-              <option value="42">Prof. Higher Tech.</option>
-              <option value="43">Higher Ed – Master's (2nd)</option>
-              <option value="44">Higher Ed – Doctorate (3rd)</option>
             </select>
           </div>
           <div class="field">
-            <label class="field-label">Special Needs</label>
+            <label>Special Needs</label>
             <div class="toggle-row">
               <input type="radio" name="special_needs" id="sn_no" value="0" checked/>
-              <label for="sn_no">No</label>
+              <label for="sn_no" class="toggle-btn">No</label>
               <input type="radio" name="special_needs" id="sn_yes" value="1"/>
-              <label for="sn_yes">Yes</label>
+              <label for="sn_yes" class="toggle-btn">Yes</label>
             </div>
           </div>
         </div>
@@ -338,109 +311,127 @@
 
       <!-- ECONOMIC CONTEXT -->
       <div class="card">
-        <div class="card-header">
-          <div class="card-icon green">📈</div>
+        <div class="card-head">
+          <div class="card-icon icon-green">
+            <svg viewBox="0 0 20 20" fill="none"><polyline points="2,14 7,9 11,12 18,5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14,5 18,5 18,9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <div>
             <div class="card-title">Economic Context</div>
-            <div class="card-sub">Macroeconomic indicators at time of enrollment</div>
+            <div class="card-sub">Macroeconomic indicators at enrollment</div>
           </div>
         </div>
-        <div class="form-grid cols3">
+        <div class="field-grid cols-3">
           <div class="field">
-            <label class="field-label">Unemployment Rate <span style="font-weight:400;color:var(--text-soft)">(%)</span></label>
+            <label>Unemployment Rate <em>(%)</em></label>
             <input type="number" id="unemployment" value="10.8" step="0.1"/>
           </div>
           <div class="field">
-            <label class="field-label">Inflation Rate <span style="font-weight:400;color:var(--text-soft)">(%)</span></label>
+            <label>Inflation Rate <em>(%)</em></label>
             <input type="number" id="inflation" value="1.4" step="0.1"/>
           </div>
           <div class="field">
-            <label class="field-label">GDP</label>
+            <label>GDP</label>
             <input type="number" id="gdp" value="1.74" step="0.01"/>
           </div>
         </div>
       </div>
 
-      <!-- ACTION BUTTON -->
       <button class="btn-predict" id="predictBtn" onclick="predict()">
-        <div class="btn-icon">🔍</div>
+        <svg viewBox="0 0 20 20" fill="none" width="18" height="18"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 7v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         Analyse Dropout Risk
       </button>
-      <div class="error-bar" id="errorBar">
-        <span>⚠</span> <span id="errorMsg"></span>
+
+      <div class="error-bar" id="errorBar" style="display:none">
+        <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 5v3M8 11v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span id="errorMsg"></span>
       </div>
 
-    </div><!-- end left -->
+    </div><!-- end left col -->
 
-    <!-- ──────── RIGHT COLUMN ──────── -->
-    <div class="result-panel">
+    <!-- ── RIGHT COLUMN ── -->
+    <div class="right-col">
 
-      <!-- RESULT CARD -->
       <div class="result-card">
-        <div class="result-topbar">
-          <span class="result-topbar-title">Prediction Output</span>
-          <span class="result-topbar-icon">📋</span>
+        <div class="result-card-header">
+          <span>Prediction Output</span>
+          <div class="result-status-dot" id="statusDot"></div>
         </div>
-        <div class="result-body">
 
-          <!-- Placeholder -->
-          <div class="placeholder" id="placeholder">
-            <div class="placeholder-art">🎯</div>
-            <h3>Awaiting Input</h3>
-            <p>Complete the student profile on the left and click <strong>Analyse Dropout Risk</strong> to generate a prediction.</p>
+        <!-- Placeholder -->
+        <div class="placeholder" id="placeholder">
+          <div class="placeholder-icon">
+            <svg viewBox="0 0 48 48" fill="none" width="48" height="48"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><path d="M24 16v8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><circle cx="24" cy="24" r="3" fill="currentColor" opacity="0.2"/></svg>
+          </div>
+          <h3>Awaiting Input</h3>
+          <p>Fill in the student profile and click <strong>Analyse Dropout Risk</strong> to generate a prediction.</p>
+        </div>
+
+        <!-- Result (hidden until prediction) -->
+        <div class="result-display" id="resultDisplay" style="display:none">
+
+          <div class="risk-header" id="riskHeader">
+            <div class="risk-emoji" id="riskEmoji"></div>
+            <div>
+              <div class="risk-level" id="riskLevel"></div>
+              <div class="risk-sub" id="riskSub"></div>
+            </div>
           </div>
 
-          <!-- Result -->
-          <div class="result-display" id="resultDisplay">
-
-            <div class="risk-header HIGH" id="riskHeader">
-              <div class="risk-emoji" id="riskEmoji">🔴</div>
-              <div class="risk-text-wrap">
-                <div class="risk-level HIGH" id="riskLevel">HIGH RISK</div>
-                <div class="risk-sub" id="riskSub">Immediate attention required</div>
+          <div class="prob-ring-section">
+            <div class="prob-ring-wrap">
+              <svg viewBox="0 0 120 120" width="120" height="120">
+                <circle cx="60" cy="60" r="50" fill="none" stroke="var(--border)" stroke-width="10"/>
+                <circle cx="60" cy="60" r="50" fill="none" stroke-width="10"
+                  stroke-linecap="round"
+                  stroke-dasharray="314"
+                  stroke-dashoffset="314"
+                  id="ringFill"
+                  transform="rotate(-90 60 60)"
+                  style="transition: stroke-dashoffset 1s cubic-bezier(.4,0,.2,1)"/>
+              </svg>
+              <div class="prob-center">
+                <div class="prob-num" id="probNum">—</div>
+                <div class="prob-pct-label">dropout</div>
               </div>
             </div>
-
-            <div class="prob-section">
-              <div class="prob-ring-wrap">
-                <svg viewBox="0 0 100 100">
-                  <circle class="ring-bg" cx="50" cy="50" r="45"/>
-                  <circle class="ring-fill HIGH" id="ringFill" cx="50" cy="50" r="45"/>
-                </svg>
-                <div class="prob-center-text">
-                  <div class="prob-num HIGH" id="probNum">—</div>
-                  <div class="prob-pct">probability</div>
-                </div>
+            <div class="prob-bar-wrap">
+              <div class="prob-bar-track">
+                <div class="prob-bar-fill" id="probBarFill" style="width:0%"></div>
               </div>
-              <div class="prob-caption">Dropout Probability</div>
+              <div class="prob-bar-labels">
+                <span>Low</span><span>Med</span><span>High</span>
+              </div>
             </div>
+          </div>
 
-            <div class="risk-message" id="riskMessage"></div>
+          <div class="risk-message" id="riskMessage"></div>
 
+          <div class="factors-section">
             <div class="factors-title">Key Indicators</div>
             <div id="factorsTable"></div>
-
           </div>
+
         </div>
       </div>
 
-      <!-- INTERVENTION GUIDANCE CARD -->
-      <div class="guidance-card">
-        <div class="guidance-header">🗂 Intervention Guidance</div>
-        <div class="guidance-body" id="guidanceBody">
-          <!-- filled dynamically -->
+      <!-- INTERVENTION GUIDANCE -->
+      <div class="guidance-card" id="guidanceCard" style="display:none">
+        <div class="guidance-card-header">
+          <svg viewBox="0 0 20 20" fill="none" width="16" height="16"><path d="M9 2H5a1 1 0 00-1 1v14a1 1 0 001 1h10a1 1 0 001-1V8l-5-6z" stroke="currentColor" stroke-width="1.5"/><path d="M9 2v6h6" stroke="currentColor" stroke-width="1.5"/></svg>
+          Intervention Guidance
         </div>
+        <div class="guidance-body" id="guidanceBody"></div>
       </div>
 
-    </div><!-- end right -->
+    </div><!-- end right col -->
 
   </div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer-strip">
+<footer>
   EduRisk · XGBoost Binary Classification · For Faculty Use Only
-</div>
-<script src="/script.js"></script>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
